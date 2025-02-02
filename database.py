@@ -1,9 +1,14 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
+from dotenv import load_dotenv
 
-URL_DATABASE = 'postgresql://postgres:postgres@localhost:5432/test_fastapi'
+load_dotenv()
+
+URL_DATABASE = os.getenv("DB_URI")
 
 engine = create_engine(URL_DATABASE)
 
